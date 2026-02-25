@@ -1,0 +1,5646 @@
+{
+  "Global_Attributes": [
+    {
+      "name": "instrument_name",
+      "type": "string",
+      "description": "Name of radar or lidar",
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "institution",
+      "type": "string",
+      "description": "See CF Conventions Appendix A",
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "references",
+      "type": "string",
+      "description": "See CF Conventions Appendix A",
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "See CF Conventions Appendix A",
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "history",
+      "type": "string",
+      "description": "See CF Conventions Appendix A",
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "comment",
+      "type": "string",
+      "description": "See CF Conventions Appendix A",
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "platform_is_mobile",
+      "type": "string",
+      "description": "\u201cfalse\u201d (mobile platforms are not supported by this profile)",
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "Conventions",
+      "type": "string",
+      
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "wmo__cf_profile",
+      "type": "string",      
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "featureType",
+      "type": "string",
+      "applicability": "Optional"
+    },
+    {
+      "name": "title",
+      "type": "string",      
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "wmo__data_category",
+      "type": "string",
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "wmo__data_policy",
+      "type": "string",      
+      "applicability": "Mandatory"
+    },
+    {
+      "name": "wmo__originating_centre",
+      "type": "string",
+      "applicability": "Optional"
+    },
+    {
+      "name": "wmo__originating_sub_centre",
+      "type": "string",      
+      "applicability": "Optional"
+    },
+     {
+      "name": "wmo__update_sequence_number",
+      "type": "string",
+      "applicability": "Optional"
+    },
+    {
+      "name": "wmo__id",
+      "type": "string",      
+      "applicability": "Optional"
+    },
+    {
+      "name": "wmo__wsi",
+      "type": "string",      
+      "applicability": "Optional"
+    },
+    {
+      "name": "site_name",
+      "type": "string",
+      "description": "Name of site where data were gathered.",
+      "applicability": "Optional"
+    },
+    {
+      "name": "scan_name",
+      "type": "string",
+      "description": "Name of scan strategy used, if applicable.",
+      "applicability": "Optional"
+    },
+    {
+      "name": "scan_id",
+      "type": "int",
+      "description": "Scan strategy id, if applicable. Assumed 0 if missing.",
+      "applicability": "Optional"
+    },
+    {
+      "name": "ray_times_increase",
+      "type": "Boolean",
+      "description": "\u201ctrue\u201d or \u201cfalse\u201d. Set to true if ray times increase monotonically throughout all of the sweeps in the volume.",
+      "applicability": "Optional"
+    },
+    {
+      "name": "simulated",
+      "type": "Boolean",
+      "description": "\u201ctrue\u201d or \u201cfalse\u201d. Set to true if data in this file are simulated.",
+      "applicability": "Optional"
+    }
+  ],
+  "Global_Ancillary_variables": [
+    {
+      "name": "volume_number",
+      "type": "int",
+      "description": "Volume numbers are sequential, relative to some arbitrary start time, and may wrap.",
+      "applicability": "Mandatory",
+      "attributes": []
+    },
+    {
+      "name": "time_coverage_start",
+      "type": "string",
+      "description": "UTC time of first ray in file.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "seconds since ."
+        },
+        {
+          "attribute_name": "calendar",
+          "attribute_datatype": "string"
+          
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "time"
+        }
+      ]
+    },
+    {
+      "name": "time_coverage_end",
+      "type": "string",
+      "description": "UTC time of the last ray in the file.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "seconds since ."
+        },
+        {
+          "attribute_name": "calendar",
+          "attribute_datatype": "string"
+          
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "time"
+        }
+      ]
+    },
+    {
+      "name": "latitude",
+      "type": "double",
+      "description": "Latitude of instrument using WGS84. For a mobile platform this is the latitude of the instrument at the start of the volume.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees_north"
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "latitude"
+        }
+      ]
+    },
+    {
+      "name": "longitude",
+      "type": "double",
+      "description": "Longitude of instrument using WGS84. For a mobile platform this is the longitude of the instrument at the start of the volume.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees_east"
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "longitude"
+        }
+      ]
+    },
+    {
+      "name": "altitude",
+      "type": "double",
+      "description": "Altitude of instrument above mean sea level, using WGS84 and EGM2008 geoid corrections. For a scanning radar this is the centre of rotation of the antenna. For a mobile platform this is the altitude at the start of the volume.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "metres"
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "height_above_reference_ellipsoid"
+        }
+      ]
+    },
+    {
+      "name": "platform_type",
+      "type": "string",
+      "description": "Type of platform upon which the radar system is mounted. Allowed values are listed in Table 15.",
+      "applicability": "Mandatory",
+      "attributes": []
+    },
+    {
+      "name": "instrument_type",
+      "type": "string",
+      "description": "Type of instrument. Allowed values are listed in Table 15.",
+      "applicability": "Mandatory",
+      "attributes": []
+    },
+    {
+      "name": "altitude_agl",
+      "type": "double",
+      "description": "Altitude of instrument above ground level. This is the centre of rotation of the antenna.",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "Units",
+          "attribute_datatype": "string",
+          "attribute_value": "metres"
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "height"
+        }
+      ]
+    },
+    {
+      "name": "primary_axis",
+      "type": "string",
+      "description": "Principle axis of rotation. Allowed values are specified in Table 301-15.",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "status_str",
+      "type": "string",
+      "description": "General-purpose string for storing any information that is not included in other parts of the data structure. Any text-based encoding may be used, including simple text, XML, JSON, etc.",
+      "applicability": "Optional",
+      "attributes": []
+    }
+  ],
+  "sweep_variables": [
+    {
+      "name": "sweep_<n>/time",
+      "type": "double",
+      "description": "Coordinate variable for the time dimension. Each value is the time at centre of each ray.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "seconds since ."
+        },
+        {
+          "attribute_name": "calendar",
+          "attribute_datatype": "string"
+          
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "time"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/range",
+      "type": "float",
+      "description": "Coordinate variable for the range dimension. Each value is range along beam propagation path to the centre of each range bin.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "metres"
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "projection_range_coordinate"
+        },
+        {
+          "attribute_name": "long_name",
+          "attribute_datatype": "string",
+          "attribute_value": "range_to_measurement_volume"
+        },
+        {
+          "attribute_name": "axis",
+          "attribute_datatype": "string",
+          "attribute_value": "cradial_range_coordinate"
+        },
+        {
+          "attribute_name": "spacing_is_constant",
+          "attribute_datatype": "string"
+          
+        },
+        {
+          "attribute_name": "meters_to_center_of_first_gate",
+          "attribute_datatype": "float"
+          
+        },
+        {
+          "attribute_name": "meters_between_gates",
+          "attribute_datatype": "float"
+          
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/frequency",
+      "type": "float",
+      "description": "List of operating frequencies in Hertz. In most cases only a single frequency is used.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "s-1"
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "radiation_frequency"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/sweep_number",
+      "type": "int",
+      "description": "The index of the sweep within the volume, 0-based.",
+      "applicability": "Mandatory",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/sweep_mode",
+      "type": "string",
+      "description": "Type of sweep that was performed. Allowed values are listed in",
+      "applicability": "Mandatory",
+      "attributes": []
+    },
+   
+    {
+      "name": "sweep_<n>/follow_mode",
+      "type": "string",
+      "description": "Target following mode used to control antenna pointing. Allowed value are listed in Table 301-15.",
+      "applicability": "Mandatory",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/prt_mode",
+      "type": "string",
+      "description": "Pulsing mode used for sweep. Standard allowed values are listed in Table 301-15. More complicated pulsing schemes may also be represented using a sequence of \u201cH\u201d and \u201cV\u201d characters. For example \u201cHHVVH\u201d.",
+      "applicability": "Mandatory",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/fixed_angle",
+      "type": "float",
+      "description": "Target angle for the sweep. In most sweep modes this is the elevation angle, for RHI mode this is the azimuth angle.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/azimuth",
+      "type": "float",
+      "description": "Azimuth of the antenna relative to true north at the centre of dwell for each ray of the sweep.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees"
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "sensor_to_target_azimuth_angle"
+        },
+        {
+          "attribute_name": "long_name",
+          "attribute_datatype": "string",
+          "attribute_value": "Azimuth angle from true north"
+        },
+        {
+          "attribute_name": "axis",
+          "attribute_datatype": "string",
+          "attribute_value": "cradial_azimuth_coordinate"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/elevation",
+      "type": "float",
+      "description": "Elevation of the antenna relative to true north at the centre of dwell for each ray of the sweep.",
+      "applicability": "Mandatory",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees"
+        },
+        {
+          "attribute_name": "standard_name",
+          "attribute_datatype": "string",
+          "attribute_value": "sensor_to_target_elevation_angle"
+        },
+        {
+          "attribute_name": "long_name",
+          "attribute_datatype": "string",
+          "attribute_value": "Elevation angle from horizontal plane"
+        },
+        {
+          "attribute_name": "axis",
+          "attribute_datatype": "string",
+          "attribute_value": "cradial_elevation_coordinate"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/polarization_mode",
+      "type": "string",
+      "description": "Polarization mode used during sweep. Allowed values are listed in Table 301-15.",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/polarization_sequence",
+      "type": "string",
+      "description": "Polarization sequence for each PRT that is used. Only applicable if prt_mode is \u201chybrid\u201d. As an example, the form of it would be [\u2018H\u2019,\u2018H\u2019,\u2018V\u2019,\u2018V\u2019,\u2018H\u2019] for HHVVH",
+      "applicability": "Optional",
+      "attributes": []
+    },
+  
+    {
+      "name": "sweep_<n>/rays_are_indexed",
+      "type": "string",
+      "description": "Indicates whether or not the ray angles (elevation in RHI sweep mode, azimuth in other modes) are indexed to a regular grid.",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/rays_angle_resolution",
+      "type": "float",
+      "description": "If rays_are_indexed is true, this is the resolution of the angular grid (that is, the delta angle between successive rays).",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/qc_procedures",
+      "type": "string",
+      "description": "General-purpose string for storing any information that describes the QC procedures performed on this sweep. Any text-based encoding may be used, including simple text, XML, JSON, etc.",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/target_scan_rate",
+      "type": "float",
+      "description": "Intended scan rate for this sweep. The actual scan rate is stored in scan_rate. This variable is optional. Omit if not available.",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees/s"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/scan_rate",
+      "type": "float",
+      "description": "Actual antenna scan rate. Set to negative if counter-clockwise in azimuth or decreasing in elevation. Positive otherwise.",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees/s"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/antenna_transition",
+      "type": "byte",
+      "description": "1 if antenna is in transition (that is, between sweeps), 0 if not. If transition rays are not included in the file this variable may be omitted.",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/pulse_width",
+      "type": "float",
+      "description": "Length of transmitted pulse.",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "seconds"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/calib_index",
+      "type": "int",
+      "description": "Index for the radar calibration that applies to this pulse width. The value must match one of the calibration indexes listed by",
+      "applicability": "Optional",
+      "attributes": []
+    },
+ 
+    {
+      "name": "sweep_<n>/rx_range_resolution",
+      "type": "float",
+      "description": "Resolution of the raw receiver samples if different to \u2018meters_between_gates\u2019. Raw data may be resampled before data storage.",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "metres"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/prt",
+      "type": "float",
+      "description": "Pulse repetition time. For staggered prt, also see prt_ratio.",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "seconds"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/prt_ratio",
+      "type": "float",
+      "description": "Ratio of prt/prt2. For dual/staggered prt mode.",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/prt_sequence",
+      "type": "float",
+      "description": "Sequence of prts used. Optional for fixed, staggered and dual, which can make use of prt and prt_ratio. Required for more complicated pulsing schemes.",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "seconds"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/_velocity",
+      "type": "float",
+      "description": "Unambiguous velocity. This is the effective Nyquist velocity after unfolding. See also the field-specific attributes fold_limit_lower and fold_limit_upper.",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/unambiguous_range",
+      "type": "float",
+      "description": "Unambiguous range.",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "metres"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/n_samples",
+      "type": "int",
+      "description": "Maximum number of samples used to compute moments. The actual number of samples used may vary from field to field.",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/monitoring/radar_measured_transmit_power_h",
+      "type": "float",
+      "description": "Measured transmit power H polarization",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/monitoring/radar_measured_transmit_power_v",
+      "type": "float",
+      "description": "Measured transmit power V polarization",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/monitoring/radar_measured_sky_noise",
+      "type": "float",
+      "description": "Noise measured at the receiver when connected to the antenna with no noise source connected",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/monitoring/radar_measured_cold_noise",
+      "type": "float",
+      "description": "Noise measured at the receiver when connected to the noise source, but it is not enabled",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/monitoring/radar_measured_hot_noise",
+      "type": "float",
+      "description": "Noise measured at the receiver when it is connected to the noise source and the noise source is on",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/monitoring/phase_difference_ transmit_hv",
+      "type": "float",
+      "description": "Phase difference between transmitted horizontally- and vertically- polarized signals as determined from the first valid range bins",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/monitoring/antenna_pointing_ accuracy_elev",
+      "type": "float",
+      "description": "Antenna- pointing accuracy in elevation",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/monitoring/antenna_pointing_ accuracy_az",
+      "type": "float",
+      "description": "Antenna-pointing accuracy in azimuth",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "sweep_<n>/monitoring/calibration_offset_h",
+      "type": "float",
+      "description": "Calibration offset for the horizontal channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/monitoring/calibration_offset_v",
+      "type": "float",
+      "description": "Calibration offset for the vertical channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "sweep_<n>/monitoring/zdr_offset",
+      "type": "float",
+      "description": "ZDR offset (bias)",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    }
+   
+  ],
+  "data_variables": [
+    {
+      "name": "sweep_<n>/DBZH",          
+      "attributes": [
+        {
+          "attribute_name": "standard_name",
+          "attribute_value": "radar_equivalent_reflectivity_factor_h",
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "long_name",          
+          "attribute_value": "Equivalent reflectivity factor H",
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+     
+      ]
+    },
+    {
+      "name": "sweep_<n>/DBZV",          
+      "attributes": [
+        {
+          "attribute_name": "standard_name",
+          "attribute_value": "radar_equivalent_reflectivity_factor_v",
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "long_name",          
+          "attribute_value": "Equivalent reflectivity factor V",
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+       
+      ]
+    },
+    {
+      "name": "sweep_<n>/ZH",
+      "attributes": [
+       {
+         "attribute_name": "standard_name",
+         "attribute_value": "radar_linear_equivalent_reflectivity_ factor_h",
+         "attribute_applicability": "Mandatory"
+       },
+       {
+         "attribute_name": "long_name",
+         "attribute_value": "Linear equivalent reflectivity factor H",
+         "attribute_applicability": "Mandatory"
+       },
+       {
+         "attribute_name": "_Undetect",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "sampling_ratio",
+         "attribute_datatype": "float",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "is_discrete",
+         "attribute_datatype": "string",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "field_folds",
+         "attribute_datatype": "string",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "fold_limit_lower",
+         "attribute_datatype": "float",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "fold_limit_upper",
+         "attribute_datatype": "float",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "is_quality_field",
+         "attribute_datatype": "string",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "flag_values",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "flag_meanings",
+         "attribute_datatype": "string",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "flag_masks",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "qualified_variables",
+         "attribute_datatype": "string",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "ancillary_variables",
+         "attribute_datatype": "string",
+         "attribute_applicability": "Optional"
+       },
+       {
+         "attribute_name": "thresholding_xml",
+         "attribute_datatype": "string",
+         "attribute_applicability": "Optional"
+       }
+     ]
+    },
+    {
+      "name": "sweep_<n>/ZV",
+      "attributes": [
+       {
+         "attribute_name": "standard_name",
+         "attribute_value": "radar_linear_equivalent_reflectivity_ factor_v",
+         "attribute_applicability": "Mandatory"
+       },
+       {
+       "attribute_name": "long_name",
+        "attribute_value": "Linear equivalent reflectivity factor V",
+        "attribute_applicability": "Mandatory"
+      },
+        {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+      
+    ]
+  },
+  {
+    "name": "sweep_<n>/DBTH",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_equivalent_reflectivity_factor_h",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Total power H (uncorrected reflectivity)",
+        "attribute_applicability": "Mandatory"
+      },
+        {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/DBTV",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_equivalent_reflectivity_factor_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Total power V (uncorrected reflectivity)",
+        "attribute_applicability": "Mandatory"
+      },
+       {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/TV",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_linear_equivalent_reflectivity_ factor_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Linear total power V (uncorrected reflectivity)",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "_Undetect",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "sampling_ratio",
+        "attribute_datatype": "float",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "is_discrete",
+        "attribute_datatype": "string",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "field_folds",
+        "attribute_datatype": "string",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "fold_limit_lower",
+        "attribute_datatype": "float",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "fold_limit_upper",
+        "attribute_datatype": "float",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "is_quality_field",
+        "attribute_datatype": "string",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "flag_values",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "flag_meanings",
+        "attribute_datatype": "string",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "flag_masks",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "qualified_variables",
+        "attribute_datatype": "string",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "ancillary_variables",
+        "attribute_datatype": "string",
+        "attribute_applicability": "Optional"
+      },
+      {
+        "attribute_name": "thresholding_xml",
+        "attribute_datatype": "string",
+        "attribute_applicability": "Optional"
+      }
+    ]
+  },
+  {
+    "name": "sweep_<n>/VRADH",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radial_velocity_of_scatterers_away_from_instrument_h",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Radial velocity of scatterers away from instrument H",
+        "attribute_applicability": "Mandatory"
+      },
+        {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/VRADV",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radial_velocity_of_scatterers_away_from_instrument_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Radial velocity of scatterers away from instrument V",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/WRADH",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_doppler_spectrum_width_h",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Doppler spectrum width H",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/WRADV",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_doppler_spectrum_width_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Doppler spectrum width V",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/ZDR",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_differential_reflectivity_hv",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Log differential reflectivity H/V",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/LDR",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_linear_depolarization_ratio",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Log-linear depolarization ratio HV",
+        "attribute_applicability": "Mandatory"
+      },
+    {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/LDRH",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_linear_depolarization_ratio_h",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Log-linear depolarization ratio H",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/LDRV",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_linear_depolarization_ratio_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Log-linear depolarization ratio V",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/PHIDP",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_differential_phase_hv",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Differential phase HV",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/KDP",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_specific_differential_phase_hv",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Specific differential phase HV",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/PHIHX",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_differential_phase_copolar_h_cross polar_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Cross-polar differential phase",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/RHOHV",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_correlation_coefficient_hv",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Correlation coefficient HV",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/RHOHX",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_correlation_coefficient_copolar_h_crosspolar_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Co-to-cross polar correlation coefficient H",
+        "attribute_applicability": "Mandatory"
+      },
+    {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/RHOVX",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_correlation_coefficient_copolar_v_crosspolar_h",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Co-to-cross polar correlation coefficient V",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+  
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/DBM",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_received_signal_power",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Log power",
+        "attribute_applicability": "Mandatory"
+      },
+    {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/DBMHC",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_received_signal_power_copolar_h",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Log power co-polar H",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/DBMHX",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_received_signal_power_crosspolar_h",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Log power cross-polar H",
+        "attribute_applicability": "Mandatory"
+      },
+    {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/DBMVC",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_received_signal_power_copolar_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Log power co-polar V",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/DBMVX",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_received_signal_power_crosspolar_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Log power cross-polar V",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/SNR",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_signal_to_noise_ratio",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Signal-to-noise ratio",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/SNRHC",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_signal_to_noise_ratio_copolar_h",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Signal-to-noise ratio co-polar H",
+        "attribute_applicability": "Mandatory"
+      },
+    {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/SNRHX",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_signal_to_noise_ratio_crosspolar_h",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Signal-to-noise ratio cross-polar H",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/SNRVC",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_signal_to_noise_ratio_copolar_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Signal-to-noise ratio co-polar V",
+        "attribute_applicability": "Mandatory"
+      },
+    {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/SNRVX",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_signal_to_noise_ratio_crosspolar_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Signal to noise ratio cross-polar V",
+        "attribute_applicability": "Mandatory"
+      },
+    {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/NCP",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_normalized_coherent_power",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Normalized coherent power",
+        "attribute_applicability": "Mandatory"
+      },
+    {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/NCPH",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_normalized_coherent_power_h",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Normalized coherent power co-polar H",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/NCPV",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_normalized_coherent_power_v",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Normalized coherent power co-polar V",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/RR",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_estimated_precipitation_rate",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Rain rate",
+        "attribute_applicability": "Mandatory"
+      },
+     {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  },
+  {
+    "name": "sweep_<n>/REC",
+    "attributes": [
+      {
+        "attribute_name": "standard_name",
+        "attribute_value": "radar_scatterer_classification",
+        "attribute_applicability": "Mandatory"
+      },
+      {
+        "attribute_name": "long_name",
+        "attribute_value": "Radar echo classification",
+        "attribute_applicability": "Mandatory"
+      },
+    {
+          "attribute_name": "_Undetect",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "sampling_ratio",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+	{
+          "attribute_name": "is_discrete",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "field_folds",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_lower",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "fold_limit_upper",
+          "attribute_datatype": "float",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "is_quality_field",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_values",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_meanings",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "flag_masks",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "qualified_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "ancillary_variables",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "thresholding_xml",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "wmo__parameter_url",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "wmo__parameter_name",
+          "attribute_datatype": "string",          
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "_FillValue",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "valid_range",               
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "scale_factor",
+                    
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "add_offset",               
+          "attribute_applicability": "Optional"
+        },
+        {
+          "attribute_name": "units",
+                    
+          "attribute_applicability": "Mandatory"
+        },
+        {
+          "attribute_name": "coordinates",
+                    
+          "attribute_applicability": "Optional"
+        }
+
+
+    ]
+  }
+],   
+  "radar_parameters": [
+    {
+      "name": "radar_parameters/antenna_gain_h",
+      "type": "float",
+      "description": "Nominal antenna gain, H polarization",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBi"
+        }
+      ]
+    },
+    {
+      "name": "radar_parameters/antenna_gain_v",
+      "type": "float",
+      "description": "Nominal antenna gain, V polarization",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBi"
+        }
+      ]
+    },
+    {
+      "name": "radar_parameters/beam_width_h",
+      "type": "float",
+      "description": "Antenna beam width, H polarization",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees"
+        }
+      ]
+    },
+    {
+      "name": "radar_parameters/beam_width_v",
+      "type": "float",
+      "description": "Antenna beam width, V polarization",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees"
+        }
+      ]
+    },
+    {
+      "name": "radar_parameters/receiver_bandwidth",
+      "type": "float",
+      "description": "Bandwidth of radar receiver",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "s-1"
+        }
+      ]
+    }
+  ],
+  "radar_calibration": [
+    {
+      "name": "radar_calibration/calib_index",
+      "type": "uint8",
+      "description": "Calibration index for each ray",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "radar_calibration/time",
+      "type": "float",
+      "description": "Time of calibration",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "seconds since ."
+        }
+        
+      ]
+    },
+    {
+      "name": "radar_calibration/pulse_width",
+      "type": "float",
+      "description": "Pulse width for this calibration",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "seconds"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/antenna_gain_h",
+      "type": "float",
+      "description": "Derived antenna gain, H channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/antenna_gain_v",
+      "type": "float",
+      "description": "Derived antenna gain, V channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/xmit_power_h",
+      "type": "float",
+      "description": "Transmit power H channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/xmit_power_v",
+      "type": "float",
+      "description": "Transmit power V channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/two_way_waveguide_loss_ h",
+      "type": "float",
+      "description": "2-way waveguide loss measurement plan to feed horn, H channel",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "radar_calibration/two_way_waveguide_loss_ v",
+      "type": "float",
+      "description": "2-way waveguide loss measurement plane to feed horn, V channel",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "radar_calibration/two_way_radome_loss_h",
+      "type": "float",
+      "description": "2-way radome loss, H channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/two_way_radome_loss_v",
+      "type": "float",
+      "description": "2-way radome loss, V channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/receiver_mismatch_loss",
+      "type": "float",
+      "description": "Receiver filter bandwidth mismatch loss",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/receiver_mismatch_loss_h",
+      "type": "float",
+      "description": "Receiver filter bandwidth mismatch loss, H channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/receiver_mismatch_loss_v",
+      "type": "float",
+      "description": "Receiver filter bandwidth mismatch loss, V channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/radar_constant_h",
+      "type": "float",
+      "description": "Radar constant, H channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "m/mW dB units"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/radar_constant_v",
+      "type": "float",
+      "description": "Radar constant, V channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "m/mW dB units"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/probert_jones_correction",
+      "type": "float",
+      "description": "Probert-Jones antenna correction factor",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/dielectric_factor_used",
+      "type": "float",
+      "description": "The |K2| in the radar equation",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "radar_calibration/noise_hc",
+      "type": "float",
+      "description": "Measured noise level, H co-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/noise_vc",
+      "type": "float",
+      "description": "Measured noise level, V co-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/noise_hx",
+      "type": "float",
+      "description": "Measured noise level, H cross-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/noise_vx",
+      "type": "float",
+      "description": "Measured noise level, V cross-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/receiver_gain_hc",
+      "type": "float",
+      "description": "Measured receiver gain, H co-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/receiver_gain_vc",
+      "type": "float",
+      "description": "Measured receiver gain, V co-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/receiver_gain_hx",
+      "type": "float",
+      "description": "Measured receiver gain, H cross-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/receiver_gain_vx",
+      "type": "float",
+      "description": "Measured receiver gain, V cross-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/base_1km_hc",
+      "type": "float",
+      "description": "Reflectivity at 1 km for SNR = 0 dB noise corrected, H co-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBZ"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/base_1km_vc",
+      "type": "float",
+      "description": "Reflectivity at 1 km for SNR = 0 dB noise corrected, V co-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBZ"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/base_1km_hx",
+      "type": "float",
+      "description": "Reflectivity at 1 km for SNR = 0 dB noise corrected, H cross-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBZ"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/base_1km_vx",
+      "type": "float",
+      "description": "Reflectivity at 1 km for SNR = 0 dB noise corrected, V cross-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBZ"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/sun_power_hc",
+      "type": "float",
+      "description": "Calibrated sun power, H co-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/sun_power_vc",
+      "type": "float",
+      "description": "Calibrated sun power, V co-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/sun_power_hx",
+      "type": "float",
+      "description": "Calibrated sun power, H cross-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/sun_power_vx",
+      "type": "float",
+      "description": "Calibrated sun power, V cross-pol channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/noise_source_power_h",
+      "type": "float",
+      "description": "Noise source power, H channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/noise_source_power_v",
+      "type": "float",
+      "description": "Noise source power, V channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/power_measure_loss_h",
+      "type": "float",
+      "description": "Power measurement loss in coax and connectors, H channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/power_measure_loss_v",
+      "type": "float",
+      "description": "Power measurement loss in coax and connectors, V channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/coupler_forward_loss_h",
+      "type": "float",
+      "description": "Coupler loss into waveguide, H channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/coupler_forward_loss_v",
+      "type": "float",
+      "description": "Coupler loss into waveguide, V channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/zdr_correction",
+      "type": "float",
+      "description": "corrected =",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+   
+    {
+      "name": "radar_calibration/ldr_correction_h",
+      "type": "float",
+      "description": "corrected =",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+
+    {
+      "name": "radar_calibration/ldr_correction_v",
+      "type": "float",
+      "description": "corrected =",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dB"
+        }
+      ]
+    },
+   
+    {
+      "name": "radar_calibration/system_phidp",
+      "type": "float",
+      "description": "System PhiDP, as seen in drizzle close to radar",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "degrees"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/test_power_h",
+      "type": "float",
+      "description": "Calibration test power, H channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/test_power_v",
+      "type": "float",
+      "description": "Calibration test power, V channel",
+      "applicability": "Optional",
+      "attributes": [
+        {
+          "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "dBm"
+        }
+      ]
+    },
+    {
+      "name": "radar_calibration/receiver_slope_hc",
+      "type": "float",
+      "description": "Computed receiver slope, ideally 1.0, H co-pol channel",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "radar_calibration/receiver_slope_vc",
+      "type": "float",
+      "description": "Computed receiver slope, ideally 1.0, V co-pol channel",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "radar_calibration/receiver_slope_hx",
+      "type": "float",
+      "description": "Computed receiver slope, ideally 1.0, H cross-pol channel",
+      "applicability": "Optional",
+      "attributes": []
+    },
+    {
+      "name": "radar_calibration/receiver_slope_vx",
+      "type": "float",
+      "description": "Computed receiver slope, ideally 1.0, V cross-pol channel",
+      "applicability": "Optional",
+      "attributes": []
+    }
+  ],
+  "allowed_values": {
+    "platform_type": [
+      "fixed",
+      "vehicle",
+      "ship",
+      "aircraft",
+      "aircraft_fore",
+      "aircraft_aft",
+      "aircraft_tail",
+      "aircraft_belly",
+      "aircraft_roof",
+      "aircraft_nose",
+      "satellite_orbit",
+      "satellite_geostat"
+    ],
+    "instrument_type": [
+      "radar",
+      "lidar"
+    ],
+    "primary_axis": [
+      "axis_z",
+      "axis_y",
+      "axis_x",
+      "axis_z_prime",
+      "axis_y_prime",
+      "axis_x_prime"
+    ],
+    "sweep_<n>/sweep_mode": [
+      "sector",
+      "coplane",
+      "rhi",
+      "vertical_pointing",
+      "idle",
+      "azimuth_surveillance",
+      "elevation_surveillance",
+      "sunscan",
+      "pointing",
+      "manual_ppi",
+      "manual_rhi",
+      "doppler_beam_swinging",
+      "complex_trajectory",
+      "electronic_steering"
+    ],
+    "sweep_<n>/follow_mode": [
+      "none",
+      "sun",
+      "vehicle",
+      "aircraft",
+      "target",
+      "manual"
+    ],
+    "sweep_<n>/prt_mode": [
+      "fixed",
+      "staggered",
+      "dual",
+      "hybrid"
+    ],
+    "sweep_<n>/polarization_mode": [
+      "horizontal",
+      "vertical",
+      "hv_alt",
+      "hv_sim",
+      "circular"
+    ],
+    "Conventions":"CF-1.8, WMO CF-1.0"
+    ,
+    "wmo__cf_profile":"FM 301-2022"
+    ,
+    "calendar":["gregorian","standard"]
+    ,
+    "wmo__data_policy":["core","recommended"]
+  
+    
+  }
+}
