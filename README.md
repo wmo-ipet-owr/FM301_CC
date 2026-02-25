@@ -35,19 +35,21 @@ You can refer to the FM301 format for all mandatory, optional, and supported var
 - [FM301 Documentation (WMO Library)](https://library.wmo.int/idurl/4/35625)
 
 ---
+## To run in Google colab
+Upload the script, json file and the file to be tested for compliance in the folder
 
 ## 📦 Installation
 
 Install required dependencies:
 
 ```bash
-pip install netCDF4 reportlab
+!pip install netCDF4 reportlab
 ```
 
 ## ▶️ Run the Script
 
 ```bash
-python fm301_cc.py ODIM.nc validation_report.pdf
+!python fm301_cc.py ODIM.nc validation_report.pdf
 ```
 
 **ODIM.nc** is the file to be checked and **validation_report.pdf** is the file name of the pdf report. **cf_radial_metadata_Final.json** file is required for the script to be executed and needs to be placed in the same folder location.
