@@ -5640,6 +5640,22 @@
     "calendar":["gregorian","standard"]
     ,
     "wmo__data_policy":["core","recommended"]
+	,
+    "platform_is_mobile":["false"]
+    ,
+    "ray_times_increase":["true","false"]
+    ,
+    "simulated":["true","false"]
+    ,
+    "spacing_is_constant":["true","false"]
+    ,
+    "/sweep_<n>/rays_are_indexed":["true","false"]
+    ,
+    "is_discrete":["true","false"]
+    ,
+    "field_folds":["true","false"]
+    ,
+    "is_quality_field":["true","false"]
   
     
   }
