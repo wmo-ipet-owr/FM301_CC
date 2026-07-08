@@ -1,7 +1,8 @@
 
 import json
 import sys
-from netCDF4 import Dataset
+from typing import TypeAlias
+from netCDF4 import Dataset, Variable
 from reportlab.lib.pagesizes import landscape, A4
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
 import re
@@ -66,6 +67,36 @@ def check_global_attributes(nc, metadata, results, section_summaries):
 
     section_summaries[section_name] = (pass_count, fail_mandatory_count, not_used_count)
 
+ScalarValue: TypeAlias = str | bytes | int | float | bool
+
+def extract_scalar_value_from_variable(var: Variable) -> tuple[ScalarValue, bool]:
+    """Extracts a scalar value from a netCDF Variable.
+
+    Args:
+        var (Variable): The netCDF Variable to extract.
+
+    Returns:
+        A tuple containing the extracted scalar value and a boolean indicating whether the variable represents a scalar value.
+    """
+    if var.shape == ():
+        # If the variable is a scalar, return its value as a Python native type
+        value = var[...]
+        if isinstance(value, str):
+            # direct conversion to Python str if the variable is an atomic string type (NC_STRING)
+            # This is the normal behavior of the netCDF4 library for scalar string variables
+            return value, True
+        else:
+            # non-string scalar variables are returned as numpy scalars
+            # which can be converted to native Python types using the item() method
+            return value.item(), True
+    elif var.ndim == 1 and var.dtype == np.dtype('S1'):
+        # If the variable is a 1-dimensional character array, return the string it represents
+        # this is a common representation of strings in classic netCDF files
+        return b''.join(var[:]).rstrip(b'\x00').decode('utf-8', errors='replace'), True
+    else:
+        # in all other cases return a compact string representation of the variable
+        # Indicates that the variable is not a scalar value 
+        return np.array2string(var[:], precision=2, separator=", ", max_line_width=80, suppress_small=True, edgeitems=2), False
 
 def check_variables(nc, metadata, group_name, results, section_summaries):
     pass_count = fail_mandatory_count = not_used_count = 0
@@ -79,7 +110,10 @@ def check_variables(nc, metadata, group_name, results, section_summaries):
         ncvar = nc.variables[name] if available else None
         actual_dtype = ncvar.dtype if available else None
         expected_dtype = var.get("type")
-        value1 = ncvar.getValue() if available else None
+
+        value1, is_scalar = extract_scalar_value_from_variable(ncvar) if available else (None, False)   
+        # handle the special case where the variable is a 1D character array (S1) representing a string
+        variable_dtype = str if (available and ncvar.dtype == np.dtype('S1') and ncvar.ndim == 1) else ncvar.dtype if available else None
         expected_value1 = metadata.get("allowed_values", {}).get(name)
 
         status = "pass"
@@ -87,7 +121,10 @@ def check_variables(nc, metadata, group_name, results, section_summaries):
             status = "fail_mandatory"
         elif not available:
             status = "not_used"
-        elif available and dtype and not np.issubdtype(ncvar.dtype, np.dtype(dtype)):
+        elif not is_scalar:
+            # Global Ancillary variables are expected to be scalar, so if the variable is not scalar, it should fail the check.
+            status = "fail_mandatory" if requirement.lower() == "mandatory" else "fail_optional"
+        elif available and dtype and not np.issubdtype(variable_dtype, np.dtype(dtype)):
             status = "fail_mandatory" if requirement.lower() == "mandatory" else "fail_optional"
         elif expected_value1 and value1 not in expected_value1:
                 status = "fail_mandatory" if requirement.lower() == "mandatory" else "fail_optional"
@@ -591,8 +628,7 @@ def generate_pdf_used(results, output_file, section_summaries,results_data, nc_f
 
     story.append(table1)
     story.append(Spacer(1, 200))  # Push footnote toward the bottom
-    story.append(Paragraph("Expert Team on Operational Weather Radar", styles['Normal']))
-    story.append(Paragraph("Standing Committee on Measurements, Instrumentation and Traceability, WMO", styles['Normal']))
+    story.append(Paragraph("Measurements, Instrumentation and Traceability Section, WIGOS Division, WMO Secretariat ", styles['Normal']))
     doc.build(story)
 
 
