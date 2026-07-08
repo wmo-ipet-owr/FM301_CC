@@ -630,7 +630,7 @@ def generate_pdf_used(results, output_file, section_summaries,results_data, nc_f
     story.append(table1)
     story.append(Spacer(1, 200))  # Push footnote toward the bottom
     story.append(Paragraph("Expert team on Operational Weather Radar", styles['Normal']))
-    story.append(Paragraph("Standing Committee on Measurements, Instrumentation and Traceability, WMO", styles['Normal']))['Normal']))
+    story.append(Paragraph("Standing Committee on Measurements, Instrumentation and Traceability, WMO", styles['Normal']))
     doc.build(story)
 
 
