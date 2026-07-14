@@ -332,7 +332,7 @@
         {
           "attribute_name": "axis",
           "attribute_datatype": "string",
-          "attribute_value": "cradial_range_coordinate"
+          "attribute_value": "radial_range_coordinate"
         },
         {
           "attribute_name": "spacing_is_constant",
@@ -340,12 +340,12 @@
           
         },
         {
-          "attribute_name": "meters_to_center_of_first_gate",
+          "attribute_name": "metres_to_center_of_first_gate",
           "attribute_datatype": "float"
           
         },
         {
-          "attribute_name": "meters_between_gates",
+          "attribute_name": "metres_between_gates",
           "attribute_datatype": "float"
           
         }
@@ -435,7 +435,7 @@
         {
           "attribute_name": "axis",
           "attribute_datatype": "string",
-          "attribute_value": "cradial_azimuth_coordinate"
+          "attribute_value": "radial_azimuth_coordinate"
         }
       ]
     },
@@ -463,7 +463,7 @@
         {
           "attribute_name": "axis",
           "attribute_datatype": "string",
-          "attribute_value": "cradial_elevation_coordinate"
+          "attribute_value": "radial_elevation_coordinate"
         }
       ]
     },
@@ -610,11 +610,17 @@
       ]
     },
     {
-      "name": "sweep_<n>/_velocity",
+      "name": "sweep_<n>/nyquist_velocity",
       "type": "float",
       "description": "Unambiguous velocity. This is the effective Nyquist velocity after unfolding. See also the field-specific attributes fold_limit_lower and fold_limit_upper.",
       "applicability": "Optional",
-      "attributes": []
+      "attributes": [
+		{
+		  "attribute_name": "units",
+          "attribute_datatype": "string",
+          "attribute_value": "metres/s"
+		}
+	  ]
     },
     {
       "name": "sweep_<n>/unambiguous_range",
@@ -702,21 +708,21 @@
       ]
     },
     {
-      "name": "sweep_<n>/monitoring/phase_difference_ transmit_hv",
+      "name": "sweep_<n>/monitoring/phase_difference_transmit_hv",
       "type": "float",
       "description": "Phase difference between transmitted horizontally- and vertically- polarized signals as determined from the first valid range bins",
       "applicability": "Optional",
       "attributes": []
     },
     {
-      "name": "sweep_<n>/monitoring/antenna_pointing_ accuracy_elev",
+      "name": "sweep_<n>/monitoring/antenna_pointing_accuracy_elev",
       "type": "float",
       "description": "Antenna- pointing accuracy in elevation",
       "applicability": "Optional",
       "attributes": []
     },
     {
-      "name": "sweep_<n>/monitoring/antenna_pointing_ accuracy_az",
+      "name": "sweep_<n>/monitoring/antenna_pointing_accuracy_az",
       "type": "float",
       "description": "Antenna-pointing accuracy in azimuth",
       "applicability": "Optional",
@@ -1079,7 +1085,7 @@
       "attributes": [
        {
          "attribute_name": "standard_name",
-         "attribute_value": "radar_linear_equivalent_reflectivity_ factor_v",
+         "attribute_value": "radar_linear_equivalent_reflectivity_factor_v",
          "attribute_applicability": "Mandatory"
        },
        {
@@ -1428,7 +1434,7 @@
     "attributes": [
       {
         "attribute_name": "standard_name",
-        "attribute_value": "radar_linear_equivalent_reflectivity_ factor_v",
+        "attribute_value": "radar_linear_equivalent_reflectivity_factor_v",
         "attribute_applicability": "Mandatory"
       },
       {
@@ -5049,14 +5055,14 @@
       ]
     },
     {
-      "name": "radar_calibration/two_way_waveguide_loss_ h",
+      "name": "radar_calibration/two_way_waveguide_loss_h",
       "type": "float",
       "description": "2-way waveguide loss measurement plan to feed horn, H channel",
       "applicability": "Optional",
       "attributes": []
     },
     {
-      "name": "radar_calibration/two_way_waveguide_loss_ v",
+      "name": "radar_calibration/two_way_waveguide_loss_v",
       "type": "float",
       "description": "2-way waveguide loss measurement plane to feed horn, V channel",
       "applicability": "Optional",
