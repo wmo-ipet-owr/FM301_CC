@@ -31,6 +31,7 @@ The FM301_CC script generates a PDF report that checks:
    - Missing variables are **not flagged**, as it depends on radar Level II product definition
 
 You can refer to the FM301 format for all mandatory, optional, and supported variables:  
+(Note: The JSON file includes the editorial changes that are yet to be published)
 - [FM301 Radial Profile (GitHub)](https://github.com/wmo-im/cf-extensions-profiles/blob/main/c3-fm301-2022-radial.adoc)  
 - [FM301 Documentation (WMO Library)](https://library.wmo.int/idurl/4/35625)
 
