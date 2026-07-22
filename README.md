@@ -18,7 +18,7 @@ The FM301_CC script generates a PDF report that checks:
 
 ### Report Structure
 1. **Section summaries**
-   - **Pass** – All mandatory and used optional parameters have correct datatype and values  
+   - **Pass** – All mandatory and used optional parameters have the correct datatype and values  
    - **Fail Mandatory** – Mandatory parameters missing or with incorrect datatype/values  
    - **Fail Optional** – Used optional parameters with incorrect datatype/values  
 
@@ -28,7 +28,9 @@ The FM301_CC script generates a PDF report that checks:
 
 3. **Variable Checks**
    - Only variables **used in the dataset** are checked  
-   - Missing variables are **not flagged**, as it depends on radar Level II product definition
+   - Missing variables are **not flagged**, as it depends on the radar Level II product definition
+
+The compliance checker returns an error, "Invalid input file, Please use FM301 Netcdf file for compliance check," if the group names of mandatory parameters are not as per the FM301 code or if there is any other structural inconsistency in the file. (For troubleshooting, you can edit the Exception block in the "fm301_cc.py")
 
 You can refer to the FM301 format for all mandatory, optional, and supported variables:  
 (Note: The JSON file includes the editorial changes that are yet to be published)
